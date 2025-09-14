@@ -232,7 +232,7 @@ export default function App() {
           <div>
             <h4 className="font-bold text-orange-500">Contato</h4>
             <p className="text-sm mt-2">WhatsApp: <a className="text-green-400 underline" href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">{WHATSAPP_NUMBER}</a></p>
-            <p className="text-sm">Instagram: <a className="underline" href="#">@sua_confeitaria</a></p>
+            <p className="text-sm">Instagram: <a className="underline" href="https://www.instagram.com/bellcakes.pt?igsh=OWhrOXBzNWxlb3Q4">@Bell_Cakes</a></p>
           </div>
           <div>
             <h4 className="font-bold text-orange-500">Horários</h4>
