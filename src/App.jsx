@@ -6,63 +6,63 @@ const WHATSAPP_NUMBER = "+244924045819";
 const produtos = [
   {
     nome: "Mini bolos",
-    imagem: "/src/assets/images/bolo1.jpg",
+    imagem: "/images/bolo1.jpg",
     descricao: "Pequenos e deliciosos bolos individuais.",
     preco: "€ 1",
     info: "Sabores: chocolate, baunilha e morango."
   },
   {
     nome: "Bolas de Berlim",
-    imagem: "/src/assets/images/bolo2.jpg",
+    imagem: "/images/bolo2.jpg",
     descricao: "Tradicionais e recheadas, irresistíveis!",
     preco: "€ 0,70",
     info: "Recheios: creme, chocolate e doce de leite."
   },
   {
     nome: "Mousse",
-    imagem: "/src/assets/images/bolo4.jpg",
+    imagem: "/images/bolo4.jpg",
     descricao: "Sobremesa cremosa e deliciosa.",
     preco: "€ 10",
     info: "Sabores: maracujá, chocolate e limão."
   },
   {
     nome: "Bolo de chocolate 🍫",
-    imagem: "/src/assets/images/bolo_chocolate.jpg",
+    imagem: "/images/bolo_chocolate.jpg",
     descricao: "Clássico e irresistível para os amantes de chocolate.",
     preco: "€ 10,00",
     info: "Cobertura de ganache com recheio cremoso."
   },
   {
     nome: "Bolo caseiro",
-    imagem: "/src/assets/images/bolo_caseiro.jpg",
+    imagem: "/images/bolo_caseiro.jpg",
     descricao: "Tradicional, simples e feito com carinho.",
     preco: "€ 10,00",
     info: "Perfeito para o café da tarde."
   },
   {
     nome: "Bolo Chantilly",
-    imagem: "/src/assets/images/bolo_chantilly.jpg",
+    imagem: "/images/bolo_chantilly.jpg",
     descricao: "Elegância e sabor para momentos especiais.",
     preco: "€ 10",
     info: "Personalizado com decoração exclusiva."
   },
   {
     nome: "Morango de Amor",
-    imagem: "/src/assets/images/morango.jpg",
+    imagem: "/images/morango.jpg",
     descricao: "Suave, leve e decorado com perfeição.",
     preco: "€ 2,5",
     info: "Coberto com chantilly fresco e frutas."
   },
   {
     nome: "Bolo de Casamento",
-    imagem: "/src/assets/images/bolo_casamento.jpg",
+    imagem: "/images/bolo_casamento.jpg",
     descricao: "Elegância e sabor para momentos especiais.",
     preco: "Sob Consulta",
     info: "Personalizado com decoração exclusiva."
   },
   {
     nome: "Bolo de Aniversário",
-    imagem: "/src/assets/images/bolo_aniversario.jpg",
+    imagem: "/images/bolo_aniversario.jpg",
     descricao: "Elegância e sabor para momentos especiais.",
     preco: "Sob Consulta",
     info: "Personalizado com decoração exclusiva."
@@ -70,10 +70,10 @@ const produtos = [
 ];
 
 const slideshowImages = [
-  { src: "/src/assets/images/bolo_chocolate.jpg", alt: "Bolo de chocolate" },
-  { src: "/src/assets/images/bolo_caseiro.jpg", alt: "Bolo caseiro" },
-  { src: "/src/assets/images/bolo_aniversario.jpg", alt: "Bolo de aniversário" },
-  { src: "/src/assets/images/morango.jpg", alt: "Doce de morango" }
+  { src: "/images/bolo_chocolate.jpg", alt: "Bolo de chocolate" },
+  { src: "/images/bolo_caseiro.jpg", alt: "Bolo caseiro" },
+  { src: "/images/bolo_aniversario.jpg", alt: "Bolo de aniversário" },
+  { src: "/images/morango.jpg", alt: "Doce de morango" }
 ];
 
 function HeroSlideshow({ images }) {
@@ -143,7 +143,7 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50 text-gray-800 scroll-smooth">
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
         <div className="w-full px-8 py-3 flex items-center justify-between">
-          <img src="/src/assets/images/logo.svg" alt="Bell Cakes Logo" className="h-12 w-auto object-contain" />
+          <img src="/images/logo.svg" alt="Bell Cakes Logo" className="h-12 w-auto object-contain" />
           <nav className="space-x-6 text-sm md:text-base font-semibold text-gray-700">
             <a href="#inicio" className="hover:text-orange-600">Início</a>
             <a href="#cardapio" className="hover:text-orange-600">Cardápio</a>
