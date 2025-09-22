@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const WHATSAPP_NUMBER = "+351 968 455 235";
+const WHATSAPP_NUMBER = "+351968455235";
 
 const produtos = [
   {
