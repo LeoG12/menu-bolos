@@ -47,7 +47,7 @@ const produtos = [
     info: "Personalizado com decoração exclusiva."
   },
   {
-    nome: "Morango de Amor",
+    nome: "Bolo no pote",
     imagem: "/images/morango.jpg",
     descricao: "Suave, leve e decorado com perfeição.",
     preco: "€ 2,5",
@@ -70,58 +70,90 @@ const produtos = [
 ];
 
 const slideshowImages = [
-  { src: "/images/bolo_chocolate.jpg", alt: "Bolo de chocolate" },
-  { src: "/images/bolo_caseiro.jpg", alt: "Bolo caseiro" },
-  { src: "/images/bolo_aniversario.jpg", alt: "Bolo de aniversário" },
-  { src: "/images/morango.jpg", alt: "Doce de morango" }
+  { src: "/images/Menu_Natal.jpg", alt: "Menu de Natal" }
 ];
 
 function HeroSlideshow({ images }) {
-  const [current, setCurrent] = useState(0);
+const [current, setCurrent] = useState(0);
+const [openImage, setOpenImage] = useState(null); // store the clicked image
 
-  const nextSlide = () => setCurrent(current === images.length - 1 ? 0 : current + 1);
-  const prevSlide = () => setCurrent(current === 0 ? images.length - 1 : current - 1);
+const nextSlide = () => setCurrent(current === images.length - 1 ? 0 : current + 1);
+const prevSlide = () => setCurrent(current === 0 ? images.length - 1 : current - 1);
 
-  useEffect(() => {
-    const timer = setTimeout(nextSlide, 5000);
-    return () => clearTimeout(timer);
-  }, [current, images.length]);
+useEffect(() => {
+const timer = setTimeout(nextSlide, 5000);
+return () => clearTimeout(timer);
+}, [current, images.length]);
 
-  const slideVariants = {
-    hidden: { opacity: 0, x: 50, transition: { duration: 0.5 } },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-    exit: { opacity: 0, x: -50, transition: { duration: 0.5 } },
-  };
+const slideVariants = {
+hidden: { opacity: 0, x: 50, transition: { duration: 0.5 } },
+visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+exit: { opacity: 0, x: -50, transition: { duration: 0.5 } },
+};
 
-  return (
-    <div className="relative">
-      <div className="aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5">
-        <AnimatePresence initial={false} mode="wait">
-          <motion.img
-            key={current}
-            src={images[current].src}
-            alt={images[current].alt}
-            variants={slideVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            className="w-full h-full object-cover"
-          />
-        </AnimatePresence>
-      </div>
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full transition ${current === index ? 'bg-white' : 'bg-white/50'}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
+return (
+<div className="relative">
+{/* Slideshow container */}
+<div
+className="aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 cursor-pointer"
+onClick={() => setOpenImage(images[current].src)} // Open modal on click
+>
+<AnimatePresence initial={false} mode="wait">
+<motion.img
+key={current}
+src={images[current].src}
+alt={images[current].alt}
+variants={slideVariants}
+initial="hidden"
+animate="visible"
+exit="exit"
+className="w-full h-full object-cover"
+/>
+</AnimatePresence>
+</div>
+
+{/* Dots navigation */}
+<div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+{images.map((_, index) => (
+<button
+key={index}
+onClick={(e) => { e.stopPropagation(); setCurrent(index); }}
+className={`w-3 h-3 rounded-full transition ${current === index ? 'bg-white' : 'bg-white/50'}`}
+/>
+))}
+</div>
+
+{/* Modal overlay for fullscreen image */}
+<AnimatePresence>
+{openImage && (
+<motion.div
+initial={{ opacity: 0 }}
+animate={{ opacity: 1 }}
+exit={{ opacity: 0 }}
+className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+onClick={() => setOpenImage(null)}
+>
+<motion.img
+src={openImage}
+alt="Ampliar imagem"
+initial={{ scale: 0.9 }}
+animate={{ scale: 1 }}
+exit={{ scale: 0.9 }}
+transition={{ duration: 0.3 }}
+className="max-w-[90%] max-h-[90%] rounded-xl shadow-lg"
+/>
+<button
+className="absolute top-6 right-6 text-white text-3xl font-bold"
+onClick={() => setOpenImage(null)}
+>
+✕
+</button>
+</motion.div>
+)}
+</AnimatePresence>
+</div>
+);
 }
-
 function Card({ children, className = "" }) {
   return <div className={`bg-white rounded-2xl overflow-hidden shadow ${className}`}>{children}</div>;
 }
